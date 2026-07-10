@@ -140,6 +140,7 @@ main { position: relative; z-index: 1; }
   justify-content: center;
   transform: rotate(6deg);
   color: var(--rust);
+  z-index: 2;
   -webkit-mask-image: radial-gradient(circle 5px at 0 0, transparent 98%, black 100%),
     radial-gradient(circle 5px at 100% 0, transparent 98%, black 100%),
     radial-gradient(circle 5px at 0 100%, transparent 98%, black 100%),
@@ -232,7 +233,8 @@ main { position: relative; z-index: 1; }
 
 @media (max-width: 480px) {
   .tl-item { grid-template-columns: 46px 24px 1fr; }
-  .tl-item:not(:last-child)::before { left: 65px; } /* Changed from 62px */
+  .tl-item:not(:last-child)::before { left: 65px; }
+  .tl-body p { max-width: none; }
 }
 
 .tl-item:last-child { padding-bottom: 0; }
@@ -283,4 +285,24 @@ main { position: relative; z-index: 1; }
 
 @media (prefers-reduced-motion: reduce) {
   .tl-item.in-view { animation: none; }
+}
+
+/* ---------- Mobile responsiveness ---------- */
+@media (max-width: 520px) {
+  /* Move stamp from top-right to centered above text */
+  .stamp {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: -2rem auto 1rem;
+    width: 64px;
+    height: 76px;
+    transform: rotate(0deg);
+  }
+  .stamp-day { font-size: 1.4rem; }
+  .stamp-month { font-size: 0.6rem; }
+
+  .eyebrow { font-size: 0.65rem; }
+  .headline { font-size: 1.75rem; }
+  .message { font-size: 0.92rem; }
 }
