@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You, Baby</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<main class="mx-auto max-w-[720px] px-5 py-10 md:py-16">
+
+  <!-- HERO -->
+  <section class="card p-8 md:p-14 text-center mb-10 relative">
+    <div class="stamp" aria-hidden="true">
+      <span class="stamp-month">JUL</span>
+      <span class="stamp-day">20</span>
+    </div>
+
+    <p class="eyebrow">a little something for you</p>
+    <h1 class="headline">Happy Birthday, <em>baby</em></h1>
+    <div class="rule" aria-hidden="true"></div>
+    <p class="message">
+      I've been looking forward to this day for a while now. A whole day set aside,
+      just for you. Good food, new places, and you next to me the entire time.
+      Save the date. I already have it all planned out.
+    </p>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section class="mb-10">
+    <p class="section-label text-center mb-5">counting down to july 20</p>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4" id="countdown">
+      <div class="stub">
+        <span class="stub-num" id="cd-days">00</span>
+        <span class="stub-label">days</span>
+      </div>
+      <div class="stub">
+        <span class="stub-num" id="cd-hours">00</span>
+        <span class="stub-label">hrs</span>
+      </div>
+      <div class="stub">
+        <span class="stub-num" id="cd-mins">00</span>
+        <span class="stub-label">min</span>
+      </div>
+      <div class="stub">
+        <span class="stub-num" id="cd-secs">00</span>
+        <span class="stub-label">sec</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="card p-6 md:p-12">
+    <p class="section-label text-center mb-1">sunday, july 19</p>
+    <h2 class="plan-title text-center mb-8">Our day, mapped out</h2>
+
+    <ol class="timeline">
+      <li class="tl-item">
+        <span class="tl-time">12:00 <small>PM</small></span>
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-body">
+          <h3>Meet &amp; light lunch</h3>
+          <p>Let's start slow. Just the two of us catching up over something easy.</p>
+        </div>
+      </li>
+      <li class="tl-item">
+        <span class="tl-time">1:00 <small>PM</small></span>
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-body">
+          <h3>Photobooth</h3>
+          <p>To make sure we have something we can keep forever.</p>
+        </div>
+      </li>
+      <li class="tl-item">
+        <span class="tl-time">1:30 <small>PM</small></span>
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-body">
+          <h3>DIY cake, IDIM DIY Bakery</h3>
+          <p>The messier the hands, the better the memories.</p>
+        </div>
+      </li>
+      <li class="tl-item">
+        <span class="tl-time">3:30 <small>PM</small></span>
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-body">
+          <h3>Museo del Galeón</h3>
+          <p>A quiet wander through history.</p>
+        </div>
+      </li>
+      <li class="tl-item">
+        <span class="tl-time">5:00 <small>PM</small></span>
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-body">
+          <h3>MOA Eye</h3>
+          <p>Catching the golden hour from above.</p>
+        </div>
+      </li>
+      <li class="tl-item">
+        <span class="tl-time">6:00 <small>PM</small></span>
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-body">
+          <h3>Early dinner</h3>
+          <p>A proper sit-down meal to wind down from the day's adventures.</p>
+        </div>
+      </li>
+      <li class="tl-item">
+        <span class="tl-time">7:00 <small>PM</small></span>
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-body">
+          <h3>Cafe</h3>
+          <p>Coffee, dessert, and no rush to head home.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <footer class="text-center mt-12 mb-6">
+    <p class="signoff">can't wait, baby.</p>
+    <p class="signoff-name">- yours</p>
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

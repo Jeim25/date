@@ -1,0 +1,286 @@
+:root {
+  --kraft-bg: #d9c5a0;
+  --kraft-panel: #f1e6cf;
+  --kraft-panel-edge: #c7ac7c;
+  --ink: #4a3826;
+  --ink-soft: #7a6650;
+  --rust: #9c4b32;
+  --thread: #a88a5a;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--kraft-bg);
+  color: var(--ink);
+  font-family: 'Work Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-image:
+    radial-gradient(ellipse at top left, rgba(255,255,255,0.10), transparent 55%),
+    radial-gradient(ellipse at bottom right, rgba(0,0,0,0.07), transparent 55%);
+}
+
+/* subtle paper grain overlay */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0.29  0 0 0 0 0.22  0 0 0 0 0.15  0 0 0 0.05 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+main { position: relative; z-index: 1; }
+
+/* ---------- Typography ---------- */
+.eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.6rem;
+}
+
+.headline {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: clamp(2.1rem, 6vw, 3.2rem);
+  line-height: 1.08;
+  margin: 0 0 1.1rem;
+  color: var(--ink);
+}
+.headline em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--rust);
+}
+
+.rule {
+  width: 56px;
+  height: 2px;
+  background: var(--thread);
+  opacity: 0.6;
+  margin: 0 auto 1.4rem;
+}
+
+.message {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 42ch;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.plan-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  color: var(--ink);
+}
+
+.signoff {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--ink);
+  margin: 0 0 0.25rem;
+}
+.signoff-name {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* ---------- Card (stitched kraft panel) ---------- */
+.card {
+  background: var(--kraft-panel);
+  border: 1.5px solid var(--kraft-panel-edge);
+  border-radius: 4px;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset, 0 14px 30px -18px rgba(74,56,38,0.45);
+  position: relative;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 1px dashed rgba(154, 127, 84, 0.55);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+/* ---------- Stamp / seal ---------- */
+.stamp {
+  position: absolute;
+  top: -18px;
+  right: 22px;
+  width: 78px;
+  height: 92px;
+  background: var(--kraft-bg);
+  border: 2px solid var(--kraft-panel-edge);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(6deg);
+  color: var(--rust);
+  -webkit-mask-image: radial-gradient(circle 5px at 0 0, transparent 98%, black 100%),
+    radial-gradient(circle 5px at 100% 0, transparent 98%, black 100%),
+    radial-gradient(circle 5px at 0 100%, transparent 98%, black 100%),
+    radial-gradient(circle 5px at 100% 100%, transparent 98%, black 100%);
+  -webkit-mask-repeat: repeat-x, repeat-x, repeat-x, repeat-x;
+  -webkit-mask-size: 10px 100%, 10px 100%, 10px 100%, 10px 100%;
+  -webkit-mask-position: left, right, left bottom, right bottom;
+  mask-image: radial-gradient(circle 5px at 0 0, transparent 98%, black 100%),
+    radial-gradient(circle 5px at 100% 0, transparent 98%, black 100%),
+    radial-gradient(circle 5px at 0 100%, transparent 98%, black 100%),
+    radial-gradient(circle 5px at 100% 100%, transparent 98%, black 100%);
+  mask-repeat: repeat-x, repeat-x, repeat-x, repeat-x;
+  mask-size: 10px 100%, 10px 100%, 10px 100%, 10px 100%;
+  mask-position: left, right, left bottom, right bottom;
+}
+.stamp-month {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+}
+.stamp-day {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+/* ---------- Countdown stubs ---------- */
+.stub {
+  background: var(--kraft-panel);
+  border: 1.5px solid var(--kraft-panel-edge);
+  border-radius: 4px;
+  padding: 0.9rem 0.4rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.stub::before {
+  content: "";
+  position: absolute;
+  inset: 6px; /* Adjusted slightly from the card's 9px to fit the smaller stub nicely */
+  border: 1px dashed rgba(154, 127, 84, 0.55);
+  border-radius: 2px;
+  pointer-events: none;
+}
+.stub-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
+  font-size: clamp(1.4rem, 5vw, 1.9rem);
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.stub-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 0.5rem;
+}
+
+/* ---------- Timeline ---------- */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  /* Removed the ::before pseudo-element from here */
+}
+
+.tl-item {
+  display: grid;
+  grid-template-columns: 76px 24px 1fr;
+  align-items: start;
+  column-gap: 0.5rem;
+  padding-bottom: 1.6rem;
+  position: relative; /* Added so the line can position relative to each item */
+}
+
+/* Draw a line connecting to the next item, but skip the last one! */
+.tl-item:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 95px; /* Changed from 92px to perfectly center the line */
+  top: 14px;
+  bottom: -10px;
+  border-left: 2px dashed rgba(154,127,84,0.55);
+  z-index: 0;
+}
+
+@media (max-width: 480px) {
+  .tl-item { grid-template-columns: 46px 24px 1fr; }
+  .tl-item:not(:last-child)::before { left: 65px; } /* Changed from 62px */
+}
+
+.tl-item:last-child { padding-bottom: 0; }
+
+.tl-time {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--ink);
+  padding-top: 0.1rem;
+  text-align: right;
+  white-space: nowrap;
+}
+.tl-time small { font-size: 0.65rem; color: var(--ink-soft); }
+
+.tl-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--rust);
+  margin: 0.28rem auto 0;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 0 3px var(--kraft-panel);
+}
+
+.tl-body h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 1.05rem;
+  margin: 0 0 0.25rem;
+  color: var(--ink);
+}
+.tl-body p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 40ch;
+}
+
+.tl-item.in-view {
+  animation: rise 0.5s ease both;
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tl-item.in-view { animation: none; }
+}
